@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "d6e841be-90f7-4d90-ae2a-94903bce3924",
+		"name": "COMP3133-Assignment1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38621963"
+	},
+	"item": [
+		{
+			"name": "Signup a New User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  signup(username: \"jessica123\", email: \"jessica@example.com\", password: \"securePass123\") {\r\n    token\r\n    user {\r\n      id\r\n      username\r\n      email\r\n    }\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "Login with an Existing User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  login(email: \"jessica@example.com\", password: \"securePass123\") {\r\n    token\r\n    user {\r\n      id\r\n      username\r\n    }\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  addNewEmployee(\r\n    first_name: \"John\",\r\n    last_name: \"Doe\",\r\n    email: \"johndoe@example.com\",\r\n    gender: \"Male\",\r\n    designation: \"Software Engineer\",\r\n    salary: 5000,\r\n    date_of_joining: \"2024-02-01\",\r\n    department: \"Engineering\",\r\n    employee_photo: \"john_doe.jpg\"\r\n  ) {\r\n    id\r\n    first_name\r\n    last_name\r\n    email\r\n    designation\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Employees",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  getAllEmployees {\r\n    id\r\n    first_name\r\n    last_name\r\n    email\r\n    designation\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Employee by ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  searchEmployeeById(id: \"67a7c667cd86e251c5acc0e7\") {\r\n    first_name\r\n    last_name\r\n    email\r\n    designation\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Employees by Designation/Department",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  searchEmployeeByDesignationOrDepartment(designation: \"Software Engineer\") {\r\n    id\r\n    first_name\r\n    last_name\r\n    email\r\n    department\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Employee by ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  updateEmployeeById(id: \"67a7c667cd86e251c5acc0e7\", salary: 6000) {\r\n    id\r\n    first_name\r\n    last_name\r\n    salary\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Employee by ID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  deleteEmployeeById(id: \"67a7c667cd86e251c5acc0e7\")\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": "http://localhost:4000/graphql"
+			},
+			"response": []
+		}
+	]
+}
